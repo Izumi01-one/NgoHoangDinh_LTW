@@ -1,0 +1,99 @@
+﻿using Week_3_Shopping_WebMCV.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Week_3_Shopping_WebMCV.Controllers
+{
+    public class ProductController : Controller
+    {
+        public IActionResult Index()
+        {
+            List<Product> products = new List<Product> {
+                new Product()
+                {
+                    Id = 1,
+                    Name = "Đồ bơi cho trẻ em",
+                    Image = Url.Content("~/images/Product/1.jpg"),
+                    Price = 500000,
+                    SalePrice = 350000,
+                    CategoryId = 1,
+                    Decription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    Status = 1,
+                    CreateAt = new DateTime(2001, 1, 1)
+                },
+                new Product()
+                {
+                    Id = 2,
+                    Name = "Đồ bơi cho trẻ em thời trang",
+                    Image = Url.Content("~/images/Product/2.jpg"),
+                    Price = 500000,
+                    SalePrice = 350000,
+                    CategoryId = 1,
+                    Decription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    Status = 1,
+                    CreateAt = new DateTime(2001, 1, 1)
+                },
+                new Product()
+                {
+                    Id = 3,
+                    Name = "Đồ bơi cho trẻ em từ 3-5 tuổi",
+                    Image = Url.Content("~/images/Product/3.jpg"),
+                    Price = 500000,
+                    SalePrice = 350000,
+                    CategoryId = 1,
+                    Decription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    Status = 1,
+                    CreateAt = new DateTime(2001, 1, 1)
+                },
+            };
+            ViewBag.Products = products;
+            return View();
+        }
+
+        [Route("San-pham", Name = "product")]
+        public IActionResult Product(int Id)
+        {
+            List<Product> products = new List<Product> {
+                new Product()
+                {
+                    Id = 1,
+                    Name = "Đồ bơi cho trẻ em",
+                    Image = Url.Content("~/images/Product/1.jpg"),
+                    Price = 500000,
+                    SalePrice = 350000,
+                    CategoryId = 1,
+                    Decription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    Status = 1,
+                    CreateAt = new DateTime(2001, 1, 1)
+                },
+                new Product()
+                {
+                    Id = 2,
+                    Name = "Đồ bơi cho trẻ em thời trang",
+                    Image = Url.Content("~/images/Product/2.jpg"),
+                    Price = 500000,
+                    SalePrice = 350000,
+                    CategoryId = 1,
+                    Decription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    Status = 1,
+                    CreateAt = new DateTime(2001, 1, 1)
+                },
+                new Product()
+                {
+                    Id = 3,
+                    Name = "Đồ bơi cho trẻ em từ 3-5 tuổi",
+                    Image = Url.Content("~/images/Product/3.jpg"),
+                    Price = 500000,
+                    SalePrice = 350000,
+                    CategoryId = 1,
+                    Decription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                    Status = 1,
+                    CreateAt = new DateTime(2001, 1, 1)
+                },
+            };
+
+            Product product = products.FirstOrDefault(pd => pd.Id == Id);
+            ViewBag.Product = product;
+            return View("ProductView");
+        }
+    }
+}
