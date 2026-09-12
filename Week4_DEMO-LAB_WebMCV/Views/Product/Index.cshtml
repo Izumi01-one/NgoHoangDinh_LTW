@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Week4_DEMO_LAB_WebMCV.Models.Products>
+@{
+    ViewData["Title"] = "Sản phẩm";
+    var categories = ViewBag.Category as IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>;
+}
+
+<div class="row">
+    <aside class="col-md-3 mb-4">
+        @await Html.PartialAsync("ShowCategories", categories)
+    </aside>
+
+    <main class="col-md-9">
+        <h2 class="bg-primary text-white p-2">Sản phẩm mới nhất</h2>
+        <div class="row">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="@item.Image"
+                                 class="card-img-top"
+                                 alt="@item.Name"
+                                 style="height: 250px; object-fit: cover;" />
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                <p class="card-text">@item.Price.ToString("N0") VNĐ</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    Danh mục này chưa có sản phẩm.
+                </div>
+            }
+        </div>
+
+        <h2 class="bg-primary text-white p-2">Sản phẩm theo component</h2>
+        @await Component.InvokeAsync("Product")
+    </main>
+</div>

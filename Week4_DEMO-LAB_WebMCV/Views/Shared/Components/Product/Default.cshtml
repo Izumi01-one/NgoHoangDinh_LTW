@@ -1,0 +1,19 @@
+@model IEnumerable<Week4_DEMO_LAB_WebMCV.Models.Products>
+
+<div class="row">
+	@foreach (var item in Model)
+	{
+		<div class="col-md-4 mb-4">
+			<div class="card h-100">
+				<img src="@item.Image"
+					 class="card-img-top"
+					 alt="@item.Name"
+					 style="height: 250px; object-fit: cover;" />
+				<div class="card-body">
+					<h5 class="card-title">@item.Name</h5>
+					<p class="card-text">@item.Price.ToString("N0") VNĐ</p>
+				</div>
+			</div>
+		</div>
+	}
+</div>

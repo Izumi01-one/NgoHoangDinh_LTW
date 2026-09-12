@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>
+
+@{
+    var selectedCategoryId = ViewBag.SelectedCategoryId?.ToString();
+}
+
+<h3 class="bg-primary text-white p-2">Danh mục sản phẩm</h3>
+<div class="list-group">
+    @if (Model != null)
+    {
+        foreach (var category in Model)
+        {
+            var isSelected = selectedCategoryId == category.Value;
+            <a asp-route="category"
+               asp-route-categoryId="@category.Value"
+               class="list-group-item list-group-item-action @(isSelected ? "active" : "")">
+                @category.Text
+            </a>
+        }
+    }
+</div>
