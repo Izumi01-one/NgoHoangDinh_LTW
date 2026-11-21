@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Week15_de1_ontap.Models.TaiSan>
+
+@foreach (var ts in Model)
+{
+    <div class="asset-card">
+        <a href="#"><img src="~/images/@ts.Anh" alt="" /></a>
+        <h2>@ts.TenTs</h2>
+        <div class="asset-foot">
+            <span class="price">@ts.NguyenGia tr</span>
+            <button class="btn-buy">Chi tiết</button>
+        </div>
+    </div>
+}

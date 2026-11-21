@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Week15_de1_ontap.Models.TaiSan>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<main class="main">
+    <div class="container">
+        <div class="banner"><img src="images/banner.jpg" alt="Banner" /></div>
+
+        <!-- Tài sản mới nhập -->
+        <div class="section-head">
+            <h3 id="tieude">Ngô Hoàng Đỉnh</h3>
+            <a href="#">Xem tất cả &rsaquo;</a>
+        </div>
+        <div class="grid" id="ds_taisan">
+            @foreach(var ts in Model)
+            {
+                <div class="asset-card">
+                    <a href="#"><img src="~/images/@ts.Anh" alt="" /></a>
+                    <h2>@ts.TenTs</h2>
+                    <div class="asset-foot">
+                        <span class="price">@ts.NguyenGia tr</span>
+                        <button class="btn-buy">Chi tiết</button>
+                    </div>
+                </div>
+            }
+
+            
+            
+        </div>
+
+        <!-- Tài sản giá trị cao -->
+        
+    </div>
+</main>
