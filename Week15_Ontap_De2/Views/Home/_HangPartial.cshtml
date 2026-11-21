@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Week15_de2_ontap.Models.TaiSan>
+
+@foreach (var ts in Model)
+{
+    <div class="asset-card">
+        <a href="#"><img src="~/images/@ts.Anh" alt="" /></a>
+        <h2>@ts.TenTs</h2>
+        <div class="asset-foot">
+            <span class="price">@ts.NguyenGia tr</span>
+            <a class="btn-buy" asp-controller="Home" asp-action="Edit" asp-route-MaTS="@ts.MaTs">Sửa</a>
+        </div>
+    </div>
+}
+
+            
